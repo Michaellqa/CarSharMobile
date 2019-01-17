@@ -10,7 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 
 protocol RentCarsDataSource {
-  func carList(userId: Int, completion: (([CarShort]) -> ())?)
+  func carList(completion: (([CarShort]) -> ())?)
 }
 
 class CarListVC: UIViewController {
@@ -28,7 +28,7 @@ class CarListVC: UIViewController {
   }
   
   private var cars: [CarShort] = []
-  var carsProvider: RentCarsDataSource = CarsProvider()
+  var carsProvider: RentCarsDataSource = CarsProvider(userId: KeychainWrapper.standard.integer(forKey: "Access token")!)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,7 +44,7 @@ class CarListVC: UIViewController {
   
   func loadCars() {
     let userId = KeychainWrapper.standard.integer(forKey: "Access token")!
-    carsProvider.carList(userId: userId) { [weak self] res in
+    carsProvider.carList() { [weak self] res in
       self?.cars = res
       self?.tableView.reloadData()
     }

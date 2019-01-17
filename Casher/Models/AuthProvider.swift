@@ -36,7 +36,7 @@ class AuthManager: AuthProvider {
   private struct Urls {
     static let base = "http://localhost:8080"
     static let userCreate = base + "/users"
-    static let userAuth = base + "/user"
+    static let userAuth = base + "/users"
   }
   
   func logIn(phone: String, pass: String, completion: @escaping (AuthResult) -> ()) {

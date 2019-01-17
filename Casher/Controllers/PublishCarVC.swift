@@ -10,7 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 
 protocol CarPublisher {
-  func addCar(userId: Int, car: Car, completion: @escaping ((AddCarError) -> ()))
+  func addCar(car: Car, completion: @escaping ((AddCarError) -> ()))
 }
 
 class PublishCarVC: UIViewController {
@@ -22,7 +22,7 @@ class PublishCarVC: UIViewController {
   @IBOutlet weak var vinTF: UITextField!
   @IBOutlet weak var saveButton: UIButton!
   
-  var publisher: CarPublisher = CarsProvider()
+  var publisher: CarPublisher = CarsProvider(userId: KeychainWrapper.standard.integer(forKey: "Access token")!)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,7 +59,7 @@ class PublishCarVC: UIViewController {
     let car = Car(model: modelTF.text!, year: year, mileage: mileage, vin: vinTF.text!)
     let userId = KeychainWrapper.standard.integer(forKey: "Access token")!
     
-    publisher.addCar(userId: userId, car: car) { err in
+    publisher.addCar(car: car) { err in
       switch err {
       case .success:
         self.showSuccess()

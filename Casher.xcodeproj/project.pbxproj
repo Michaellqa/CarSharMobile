@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D166ED9CAFEBC952FBDD70A /* Pods_Casher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BD9D13DCC1AB69B8CAA052 /* Pods_Casher.framework */; };
 		8133697C21C195030006C876 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133697B21C195030006C876 /* AuthProvider.swift */; };
-		8149F2A621EB487F0047AAD7 /* OwnedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8149F2A521EB487F0047AAD7 /* OwnedCar.swift */; };
+		8149F2A621EB487F0047AAD7 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8149F2A521EB487F0047AAD7 /* Models.swift */; };
 		8152306F21C4D9B40044452A /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152306E21C4D9B40044452A /* KeyboardManager.swift */; };
 		8152307521C4EC450044452A /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152307421C4EC450044452A /* NibView.swift */; };
 		8152307B21C4F0B90044452A /* CarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152307A21C4F0B90044452A /* CarListVC.swift */; };
@@ -48,7 +48,7 @@
 		20BD9D13DCC1AB69B8CAA052 /* Pods_Casher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Casher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8B9E628F593207FE2268A8 /* Pods-Casher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Casher/Pods-Casher.release.xcconfig"; sourceTree = "<group>"; };
 		8133697B21C195030006C876 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
-		8149F2A521EB487F0047AAD7 /* OwnedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedCar.swift; sourceTree = "<group>"; };
+		8149F2A521EB487F0047AAD7 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		8152306E21C4D9B40044452A /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		8152307421C4EC450044452A /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
 		8152307A21C4F0B90044452A /* CarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListVC.swift; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 			children = (
 				8133697B21C195030006C876 /* AuthProvider.swift */,
 				817FFDE421E4A1CF00A1D765 /* CarsManager.swift */,
-				8149F2A521EB487F0047AAD7 /* OwnedCar.swift */,
+				8149F2A521EB487F0047AAD7 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 				8152306F21C4D9B40044452A /* KeyboardManager.swift in Sources */,
 				819BFC4121EF20B000928CF4 /* RentVC.swift in Sources */,
 				81DBE76521E33EE00010AC96 /* test.swift in Sources */,
-				8149F2A621EB487F0047AAD7 /* OwnedCar.swift in Sources */,
+				8149F2A621EB487F0047AAD7 /* Models.swift in Sources */,
 				819BFC3721EE599000928CF4 /* AddDateView.swift in Sources */,
 				81E85A7D21C03F4100A189D2 /* AppDelegate.swift in Sources */,
 				819BFC2E21EE52DE00928CF4 /* TitleValueCell.swift in Sources */,

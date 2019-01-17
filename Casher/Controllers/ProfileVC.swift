@@ -10,7 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 
 protocol AccountManager {
-  func ownedCars(userId: Int, completion: (([OwnedCar]) -> ())?)
+  func ownedCars(completion: (([OwnedCar]) -> ())?)
 }
 
 class ProfileVC: UIViewController {
@@ -19,7 +19,7 @@ class ProfileVC: UIViewController {
   @IBOutlet weak var logOutButton: UIButton!
   
   private var ownedCars: [OwnedCar] = []
-  var accountManager: AccountManager = CarsProvider()
+  var accountManager: AccountManager = CarsProvider(userId: KeychainWrapper.standard.integer(forKey: "Access token")!)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -52,7 +52,7 @@ class ProfileVC: UIViewController {
   
   private func loadInfo() {
     let userId = KeychainWrapper.standard.integer(forKey: "Access token")!
-    accountManager.ownedCars(userId: userId) { cars in
+    accountManager.ownedCars() { cars in
       self.ownedCars = cars
       self.tableView.reloadData()
     }

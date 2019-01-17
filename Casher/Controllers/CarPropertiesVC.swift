@@ -37,6 +37,7 @@ struct CarDate {
 
 class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
+  private let datePicker = UIDatePicker()
   @IBOutlet weak var tableView: UITableView!
 //  private let car: Car
   private var prices: [CarPrice] = []
@@ -178,5 +179,33 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     case 2: return max(dates.count, 1)
     default: return 0
     }
+  }
+}
+
+extension CarPropertiesVC {
+  func bindDatePicker() {
+    datePicker.datePickerMode = .dateAndTime
+    let toolbar = UIToolbar()
+    toolbar.sizeToFit()
+    
+    let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePicker))
+    let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let cancelButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(cancelPicker))
+    
+    toolbar.setItems([cancelButton, space, doneButton], animated: true)
+    
+    addDateView.startDateTF.inputView = datePicker
+    addDateView.startDateTF.inputAccessoryView = toolbar
+  }
+  
+  @objc func donePicker(){
+    let formatter = DateFormatter()
+    formatter.dateFormat = "dd/MM/yyyy hh:mm"
+    addDateView.startDateTF.text = formatter.string(from: datePicker.date)
+    self.view.endEditing(true)
+  }
+  
+  @objc func cancelPicker(){
+    self.view.endEditing(true)
   }
 }

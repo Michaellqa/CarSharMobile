@@ -92,9 +92,6 @@ class AuthVC: UIViewController {
       if error == .userExists {
         self.showError("This phone number is already taken")
       }
-      if error != nil {
-        self.showError("Smth happened")
-      }
       self.logIn()
     }
   }
