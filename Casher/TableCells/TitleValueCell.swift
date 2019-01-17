@@ -6,4 +6,10 @@
 //  Copyright © 2019 Micky. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TitleValueCell: UITableViewCell {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var valueLabel: UILabel!
+  
+}

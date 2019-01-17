@@ -27,11 +27,11 @@ enum AuthResult {
 }
 
 enum SignupError {
-  case userExists
+  case none, userExists
 }
 
 
-class AuthProvider {
+class AuthManager: AuthProvider {
   
   private struct Urls {
     static let base = "http://localhost:8080"
@@ -73,7 +73,7 @@ class AuthProvider {
   }
   
   
-  func signUp(user: NewUser, completion: @escaping (SignupError?) -> ()) {
+  func signUp(user: NewUser, completion: @escaping (SignupError) -> ()) {
     guard let date = ISODateFormat(date: user.birthDate) else {
       return
     }
@@ -84,7 +84,6 @@ class AuthProvider {
       "Name": user.name,
       "BirthDate": date
     ]
-    print(params)
     Alamofire.request(Urls.userCreate, method: .post, parameters: params, encoding: JSONEncoding.default)
       .validate()
       .response { resp in

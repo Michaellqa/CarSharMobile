@@ -6,4 +6,8 @@
 //  Copyright © 2019 Micky. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ButtonCell: UITableViewCell {
+  @IBOutlet weak var button: UIButton!
+}

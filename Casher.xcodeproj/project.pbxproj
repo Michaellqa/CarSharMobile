@@ -7,21 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D166ED9CAFEBC952FBDD70A /* Pods_Casher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BD9D13DCC1AB69B8CAA052 /* Pods_Casher.framework */; };
+		8133697C21C195030006C876 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8133697B21C195030006C876 /* AuthProvider.swift */; };
+		8149F2A621EB487F0047AAD7 /* OwnedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8149F2A521EB487F0047AAD7 /* OwnedCar.swift */; };
+		8152306F21C4D9B40044452A /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152306E21C4D9B40044452A /* KeyboardManager.swift */; };
+		8152307521C4EC450044452A /* NibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152307421C4EC450044452A /* NibView.swift */; };
+		8152307B21C4F0B90044452A /* CarListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8152307A21C4F0B90044452A /* CarListVC.swift */; };
+		817FFDE521E4A1CF00A1D765 /* CarsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FFDE421E4A1CF00A1D765 /* CarsManager.swift */; };
+		819BFC2821EE4B3F00928CF4 /* CarPropertiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC2721EE4B3F00928CF4 /* CarPropertiesVC.swift */; };
+		819BFC2A21EE4DB800928CF4 /* CarPropertiesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC2921EE4DB800928CF4 /* CarPropertiesVC.xib */; };
+		819BFC2C21EE526A00928CF4 /* TitleValueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC2B21EE526A00928CF4 /* TitleValueCell.xib */; };
+		819BFC2E21EE52DE00928CF4 /* TitleValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC2D21EE52DE00928CF4 /* TitleValueCell.swift */; };
+		819BFC3121EE546200928CF4 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC3021EE546200928CF4 /* ButtonCell.xib */; };
+		819BFC3321EE547000928CF4 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC3221EE547000928CF4 /* ButtonCell.swift */; };
+		819BFC3521EE598300928CF4 /* AddDateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC3421EE598300928CF4 /* AddDateView.xib */; };
+		819BFC3721EE599000928CF4 /* AddDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC3621EE599000928CF4 /* AddDateView.swift */; };
+		819BFC3921EE59A400928CF4 /* AddPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC3821EE59A400928CF4 /* AddPriceView.swift */; };
+		819BFC3B21EE59B000928CF4 /* AddPriceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC3A21EE59B000928CF4 /* AddPriceView.xib */; };
+		819BFC3D21EE91D300928CF4 /* TableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC3C21EE91D300928CF4 /* TableHeader.swift */; };
+		819BFC3F21EEFD4300928CF4 /* CarListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC3E21EEFD4300928CF4 /* CarListVC.xib */; };
+		819BFC4121EF20B000928CF4 /* RentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819BFC4021EF20B000928CF4 /* RentVC.swift */; };
+		819BFC4321EF22B900928CF4 /* RentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 819BFC4221EF22B900928CF4 /* RentVC.xib */; };
+		81B4A0A321E4CCFA000EA26F /* PublishCarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4A0A221E4CCFA000EA26F /* PublishCarVC.swift */; };
+		81B4A0A521E4D932000EA26F /* PublishCarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B4A0A421E4D932000EA26F /* PublishCarVC.xib */; };
+		81B4A0A721E51254000EA26F /* UserCarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4A0A621E51254000EA26F /* UserCarsCell.swift */; };
+		81B4A0A921E512DD000EA26F /* UserCarsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B4A0A821E512DD000EA26F /* UserCarsCell.xib */; };
+		81DBE76521E33EE00010AC96 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76421E33EE00010AC96 /* test.swift */; };
+		81DBE76721E3C5E80010AC96 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76621E3C5E80010AC96 /* ProfileVC.swift */; };
+		81DBE76921E3C8960010AC96 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE76821E3C8960010AC96 /* ProfileVC.xib */; };
+		81DBE76C21E3D64B0010AC96 /* RentCarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76B21E3D64B0010AC96 /* RentCarListCell.swift */; };
+		81DBE76E21E47FD00010AC96 /* RentCarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE76D21E47FD00010AC96 /* RentCarListCell.xib */; };
 		81E85A7D21C03F4100A189D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E85A7C21C03F4100A189D2 /* AppDelegate.swift */; };
-		81E85A7F21C03F4100A189D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E85A7E21C03F4100A189D2 /* ViewController.swift */; };
+		81E85A7F21C03F4100A189D2 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E85A7E21C03F4100A189D2 /* AuthVC.swift */; };
 		81E85A8221C03F4100A189D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E85A8021C03F4100A189D2 /* Main.storyboard */; };
 		81E85A8421C03F4200A189D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81E85A8321C03F4200A189D2 /* Assets.xcassets */; };
 		81E85A8721C03F4200A189D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81E85A8521C03F4200A189D2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20BD9D13DCC1AB69B8CAA052 /* Pods_Casher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Casher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8B9E628F593207FE2268A8 /* Pods-Casher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casher.release.xcconfig"; path = "Pods/Target Support Files/Pods-Casher/Pods-Casher.release.xcconfig"; sourceTree = "<group>"; };
+		8133697B21C195030006C876 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		8149F2A521EB487F0047AAD7 /* OwnedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedCar.swift; sourceTree = "<group>"; };
+		8152306E21C4D9B40044452A /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		8152307421C4EC450044452A /* NibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibView.swift; sourceTree = "<group>"; };
+		8152307A21C4F0B90044452A /* CarListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListVC.swift; sourceTree = "<group>"; };
+		817FFDE421E4A1CF00A1D765 /* CarsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsManager.swift; sourceTree = "<group>"; };
+		819BFC2721EE4B3F00928CF4 /* CarPropertiesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPropertiesVC.swift; sourceTree = "<group>"; };
+		819BFC2921EE4DB800928CF4 /* CarPropertiesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarPropertiesVC.xib; sourceTree = "<group>"; };
+		819BFC2B21EE526A00928CF4 /* TitleValueCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleValueCell.xib; sourceTree = "<group>"; };
+		819BFC2D21EE52DE00928CF4 /* TitleValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueCell.swift; sourceTree = "<group>"; };
+		819BFC3021EE546200928CF4 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		819BFC3221EE547000928CF4 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		819BFC3421EE598300928CF4 /* AddDateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddDateView.xib; sourceTree = "<group>"; };
+		819BFC3621EE599000928CF4 /* AddDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDateView.swift; sourceTree = "<group>"; };
+		819BFC3821EE59A400928CF4 /* AddPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceView.swift; sourceTree = "<group>"; };
+		819BFC3A21EE59B000928CF4 /* AddPriceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPriceView.xib; sourceTree = "<group>"; };
+		819BFC3C21EE91D300928CF4 /* TableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeader.swift; sourceTree = "<group>"; };
+		819BFC3E21EEFD4300928CF4 /* CarListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarListVC.xib; sourceTree = "<group>"; };
+		819BFC4021EF20B000928CF4 /* RentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentVC.swift; sourceTree = "<group>"; };
+		819BFC4221EF22B900928CF4 /* RentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentVC.xib; sourceTree = "<group>"; };
+		81B4A0A221E4CCFA000EA26F /* PublishCarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishCarVC.swift; sourceTree = "<group>"; };
+		81B4A0A421E4D932000EA26F /* PublishCarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishCarVC.xib; sourceTree = "<group>"; };
+		81B4A0A621E51254000EA26F /* UserCarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCarsCell.swift; sourceTree = "<group>"; };
+		81B4A0A821E512DD000EA26F /* UserCarsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCarsCell.xib; sourceTree = "<group>"; };
+		81DBE76421E33EE00010AC96 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		81DBE76621E3C5E80010AC96 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		81DBE76821E3C8960010AC96 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		81DBE76B21E3D64B0010AC96 /* RentCarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RentCarListCell.swift; sourceTree = "<group>"; };
+		81DBE76D21E47FD00010AC96 /* RentCarListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RentCarListCell.xib; sourceTree = "<group>"; };
 		81E85A7921C03F4100A189D2 /* Casher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Casher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81E85A7C21C03F4100A189D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81E85A7E21C03F4100A189D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81E85A7E21C03F4100A189D2 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		81E85A8121C03F4100A189D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81E85A8321C03F4200A189D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81E85A8621C03F4200A189D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81E85A8821C03F4200A189D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95F8E3E87EA58CFC5D2B5366 /* Pods-Casher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Casher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Casher/Pods-Casher.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +91,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D166ED9CAFEBC952FBDD70A /* Pods_Casher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		819BFC2F21EE540600928CF4 /* CarProperties */ = {
+			isa = PBXGroup;
+			children = (
+				819BFC3021EE546200928CF4 /* ButtonCell.xib */,
+				819BFC3221EE547000928CF4 /* ButtonCell.swift */,
+				819BFC3421EE598300928CF4 /* AddDateView.xib */,
+				819BFC3621EE599000928CF4 /* AddDateView.swift */,
+				819BFC3A21EE59B000928CF4 /* AddPriceView.xib */,
+				819BFC3821EE59A400928CF4 /* AddPriceView.swift */,
+				819BFC3C21EE91D300928CF4 /* TableHeader.swift */,
+			);
+			name = CarProperties;
+			sourceTree = "<group>";
+		};
+		81DBE76A21E3D61F0010AC96 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				819BFC2F21EE540600928CF4 /* CarProperties */,
+				81DBE76B21E3D64B0010AC96 /* RentCarListCell.swift */,
+				81DBE76D21E47FD00010AC96 /* RentCarListCell.xib */,
+				81B4A0A621E51254000EA26F /* UserCarsCell.swift */,
+				81B4A0A821E512DD000EA26F /* UserCarsCell.xib */,
+				819BFC2B21EE526A00928CF4 /* TitleValueCell.xib */,
+				819BFC2D21EE52DE00928CF4 /* TitleValueCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
 		81E85A7021C03F4100A189D2 = {
 			isa = PBXGroup;
 			children = (
 				81E85A7B21C03F4100A189D2 /* Casher */,
 				81E85A7A21C03F4100A189D2 /* Products */,
+				BB67B18F5D22C9FC5034C8B3 /* Pods */,
+				AD49D8DB4E22ADA2FE67F2B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +147,80 @@
 		81E85A7B21C03F4100A189D2 /* Casher */ = {
 			isa = PBXGroup;
 			children = (
-				81E85A7C21C03F4100A189D2 /* AppDelegate.swift */,
-				81E85A7E21C03F4100A189D2 /* ViewController.swift */,
-				81E85A8021C03F4100A189D2 /* Main.storyboard */,
-				81E85A8321C03F4200A189D2 /* Assets.xcassets */,
-				81E85A8521C03F4200A189D2 /* LaunchScreen.storyboard */,
+				81E85A9121C03FB000A189D2 /* Controllers */,
+				81E85A9021C03FA400A189D2 /* Views */,
+				81E85A8F21C03F9600A189D2 /* Models */,
 				81E85A8821C03F4200A189D2 /* Info.plist */,
+				81E85A8E21C03F5D00A189D2 /* SupportingFiles */,
+				81DBE76421E33EE00010AC96 /* test.swift */,
 			);
 			path = Casher;
+			sourceTree = "<group>";
+		};
+		81E85A8E21C03F5D00A189D2 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8152307421C4EC450044452A /* NibView.swift */,
+				81E85A8321C03F4200A189D2 /* Assets.xcassets */,
+				81E85A7C21C03F4100A189D2 /* AppDelegate.swift */,
+				81E85A8521C03F4200A189D2 /* LaunchScreen.storyboard */,
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		81E85A8F21C03F9600A189D2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8133697B21C195030006C876 /* AuthProvider.swift */,
+				817FFDE421E4A1CF00A1D765 /* CarsManager.swift */,
+				8149F2A521EB487F0047AAD7 /* OwnedCar.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81E85A9021C03FA400A189D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81DBE76A21E3D61F0010AC96 /* TableCells */,
+				81E85A8021C03F4100A189D2 /* Main.storyboard */,
+				81DBE76821E3C8960010AC96 /* ProfileVC.xib */,
+				81B4A0A421E4D932000EA26F /* PublishCarVC.xib */,
+				819BFC2921EE4DB800928CF4 /* CarPropertiesVC.xib */,
+				819BFC3E21EEFD4300928CF4 /* CarListVC.xib */,
+				819BFC4221EF22B900928CF4 /* RentVC.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		81E85A9121C03FB000A189D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81E85A7E21C03F4100A189D2 /* AuthVC.swift */,
+				8152306E21C4D9B40044452A /* KeyboardManager.swift */,
+				8152307A21C4F0B90044452A /* CarListVC.swift */,
+				81DBE76621E3C5E80010AC96 /* ProfileVC.swift */,
+				81B4A0A221E4CCFA000EA26F /* PublishCarVC.swift */,
+				819BFC2721EE4B3F00928CF4 /* CarPropertiesVC.swift */,
+				819BFC4021EF20B000928CF4 /* RentVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		AD49D8DB4E22ADA2FE67F2B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20BD9D13DCC1AB69B8CAA052 /* Pods_Casher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB67B18F5D22C9FC5034C8B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				95F8E3E87EA58CFC5D2B5366 /* Pods-Casher.debug.xcconfig */,
+				4B8B9E628F593207FE2268A8 /* Pods-Casher.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +230,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81E85A8B21C03F4200A189D2 /* Build configuration list for PBXNativeTarget "Casher" */;
 			buildPhases = (
+				1807487E9CB0BBFE7B48799E /* [CP] Check Pods Manifest.lock */,
 				81E85A7521C03F4100A189D2 /* Sources */,
 				81E85A7621C03F4100A189D2 /* Frameworks */,
 				81E85A7721C03F4100A189D2 /* Resources */,
+				F953F001473C87EA52BCEB9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -122,21 +283,91 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				819BFC3B21EE59B000928CF4 /* AddPriceView.xib in Resources */,
+				819BFC2A21EE4DB800928CF4 /* CarPropertiesVC.xib in Resources */,
 				81E85A8721C03F4200A189D2 /* LaunchScreen.storyboard in Resources */,
+				819BFC4321EF22B900928CF4 /* RentVC.xib in Resources */,
+				81B4A0A521E4D932000EA26F /* PublishCarVC.xib in Resources */,
 				81E85A8421C03F4200A189D2 /* Assets.xcassets in Resources */,
+				819BFC3521EE598300928CF4 /* AddDateView.xib in Resources */,
+				81DBE76E21E47FD00010AC96 /* RentCarListCell.xib in Resources */,
 				81E85A8221C03F4100A189D2 /* Main.storyboard in Resources */,
+				81B4A0A921E512DD000EA26F /* UserCarsCell.xib in Resources */,
+				819BFC3121EE546200928CF4 /* ButtonCell.xib in Resources */,
+				81DBE76921E3C8960010AC96 /* ProfileVC.xib in Resources */,
+				819BFC2C21EE526A00928CF4 /* TitleValueCell.xib in Resources */,
+				819BFC3F21EEFD4300928CF4 /* CarListVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1807487E9CB0BBFE7B48799E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Casher-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F953F001473C87EA52BCEB9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Casher/Pods-Casher-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Casher/Pods-Casher-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		81E85A7521C03F4100A189D2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81E85A7F21C03F4100A189D2 /* ViewController.swift in Sources */,
+				819BFC3921EE59A400928CF4 /* AddPriceView.swift in Sources */,
+				819BFC2821EE4B3F00928CF4 /* CarPropertiesVC.swift in Sources */,
+				81B4A0A321E4CCFA000EA26F /* PublishCarVC.swift in Sources */,
+				81B4A0A721E51254000EA26F /* UserCarsCell.swift in Sources */,
+				81DBE76721E3C5E80010AC96 /* ProfileVC.swift in Sources */,
+				81E85A7F21C03F4100A189D2 /* AuthVC.swift in Sources */,
+				81DBE76C21E3D64B0010AC96 /* RentCarListCell.swift in Sources */,
+				8133697C21C195030006C876 /* AuthProvider.swift in Sources */,
+				819BFC3321EE547000928CF4 /* ButtonCell.swift in Sources */,
+				817FFDE521E4A1CF00A1D765 /* CarsManager.swift in Sources */,
+				819BFC3D21EE91D300928CF4 /* TableHeader.swift in Sources */,
+				8152307521C4EC450044452A /* NibView.swift in Sources */,
+				8152306F21C4D9B40044452A /* KeyboardManager.swift in Sources */,
+				819BFC4121EF20B000928CF4 /* RentVC.swift in Sources */,
+				81DBE76521E33EE00010AC96 /* test.swift in Sources */,
+				8149F2A621EB487F0047AAD7 /* OwnedCar.swift in Sources */,
+				819BFC3721EE599000928CF4 /* AddDateView.swift in Sources */,
 				81E85A7D21C03F4100A189D2 /* AppDelegate.swift in Sources */,
+				819BFC2E21EE52DE00928CF4 /* TitleValueCell.swift in Sources */,
+				8152307B21C4F0B90044452A /* CarListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +511,7 @@
 		};
 		81E85A8C21C03F4200A189D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95F8E3E87EA58CFC5D2B5366 /* Pods-Casher.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +529,7 @@
 		};
 		81E85A8D21C03F4200A189D2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B8B9E628F593207FE2268A8 /* Pods-Casher.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

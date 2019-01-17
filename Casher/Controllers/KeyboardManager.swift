@@ -6,4 +6,19 @@
 //  Copyright © 2018 Micky. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol KeyboardManager {
+  func begin()
+  func end()
+}
+
+extension KeyboardManager where Self: UIViewController {
+  func begin() {
+    view.subviews.forEach {
+      if $0 is UITextField {
+        
+      }
+    }
+  }
+}
