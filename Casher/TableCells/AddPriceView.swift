@@ -20,7 +20,7 @@ class AddPriceView: UIView {
   @IBOutlet weak var saveButton: UIButton!
   
   var saveAction: ((CarPrice) -> ())?
-  private var timeUnit: TimeUnit = .hour
+  var timeUnit: TimeUnit = .hour
   
   override init(frame: CGRect) {
     super.init(frame: frame)

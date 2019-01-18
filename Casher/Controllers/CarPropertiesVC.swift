@@ -8,40 +8,23 @@
 
 import UIKit
 
-enum TimeUnit: Int {
-  case hour
-  case day
-  case week
+protocol DatesPricesProvider {
+  func saveDate(carId: Int, date: CarDate, completion: @escaping ((ResponseError) -> ()))
+  func savePrice(carId: Int, price: CarPrice, completion: @escaping ((ResponseError) -> ()))
   
-  func string() -> String {
-    switch self {
-    case .hour:
-      return "Hour"
-    case .day:
-      return "Day"
-    case .week:
-      return "Week"
-    }
-  }
-}
-
-struct CarPrice {
-  let timeUnit: TimeUnit
-  let price: Double
-}
-
-struct CarDate {
-  let start: String
-  let end: String
+  func dates(carId: Int, completion: @escaping (([CarDate]) -> ()))
+  func prices(carId: Int, completion: @escaping (([CarPrice]) -> ()))
 }
 
 class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   private let datePicker = UIDatePicker()
   @IBOutlet weak var tableView: UITableView!
-//  private let car: Car
   private var prices: [CarPrice] = []
   private var dates: [CarDate] = []
+  
+  var dataProvider: DatesPricesProvider!
+  var car: OwnedCar!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,8 +33,8 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     tableView.dataSource = self
     tableView.delegate = self
     
-//    let nb = UINavigationBar()
-//    view.addSubview(nb)
+    bindDatePicker()
+    loadDatesAndPrices()
   }
   
   @objc private func goBack() {
@@ -66,7 +49,7 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     height: 300))
     v.saveAction = { [weak self] day in
       guard self != nil else { return }
-      self!.hidePicker(self!.addPriceView)
+      self?.savePrice()
     }
     return v
   }()
@@ -79,8 +62,7 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
       height: 300))
     v.saveAction = { [weak self] s1, s2 in
       guard self != nil else { return }
-      self!.hidePicker(self!.addDateView)
-      self!.dismiss(animated: true, completion: nil)
+      self?.saveDate()
     }
     return v
   }()
@@ -94,6 +76,65 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     showPicker(addPriceView)
   }
   
+  func saveDate() {
+    guard let s = addDateView.startDateTF.text, !s.isEmpty,
+      let e = addDateView.endDateTF.text, !e.isEmpty else {
+        showError("fill in fields")
+        return
+    }
+    
+    let inFormatter = DateFormatter()
+    inFormatter.dateFormat = "dd/MM/yyyy hh:mm"
+    
+    guard let start = inFormatter.date(from: s),
+      let end = inFormatter.date(from: e) else {
+        showError("incorrect")
+        return
+    }
+    
+    let outFormatter = DateFormatter()
+    outFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    let startStr = outFormatter.string(from: start)
+    let endStr = outFormatter.string(from: end)
+    
+    let date = CarDate(start: startStr, end: endStr)
+    
+    dataProvider.saveDate(carId: car.id, date: date) { error in
+      if error == .none {
+        self.hidePicker(self.addDateView)
+        self.loadDatesAndPrices()
+      } else {
+        print("haven't saved")
+      }
+    }
+  }
+  
+  func savePrice() {
+    guard let p = addPriceView.priceField.text, let price = Double(p) else {
+      showError("incorrect")
+      return
+    }
+    
+    let carPrice = CarPrice(timeUnit: addPriceView.timeUnit, price: price)
+    dataProvider.savePrice(carId: car.id, price: carPrice) { err in
+      if err == .none {
+        self.hidePicker(self.addPriceView)
+        self.loadDatesAndPrices()
+      }
+    }
+  }
+  
+  func loadDatesAndPrices() {
+    dataProvider.prices(carId: car.id) { prices in
+      self.prices = prices
+      self.tableView.reloadData()
+    }
+    dataProvider.dates(carId: car.id) { dates in
+      self.dates = dates
+      self.tableView.reloadData()
+    }
+  }
+  
   private func showPicker(_ picker: UIView) {
     view.addSubview(picker)
     picker.alpha = 0
@@ -102,7 +143,7 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
   }
   
-  func hidePicker(_ picker: UIView) {
+  private func hidePicker(_ picker: UIView) {
     print("buy")
     UIView.animate(withDuration: 0.2, animations: {
       picker.alpha = 0
@@ -196,12 +237,20 @@ extension CarPropertiesVC {
     
     addDateView.startDateTF.inputView = datePicker
     addDateView.startDateTF.inputAccessoryView = toolbar
+    addDateView.endDateTF.inputView = datePicker
+    addDateView.endDateTF.inputAccessoryView = toolbar
   }
   
   @objc func donePicker(){
     let formatter = DateFormatter()
     formatter.dateFormat = "dd/MM/yyyy hh:mm"
-    addDateView.startDateTF.text = formatter.string(from: datePicker.date)
+    if addDateView.startDateTF.isFirstResponder {
+      addDateView.startDateTF.text = formatter.string(from: datePicker.date)
+    }
+    if addDateView.endDateTF.isFirstResponder {
+      addDateView.endDateTF.text = formatter.string(from: datePicker.date)
+    }
+    
     self.view.endEditing(true)
   }
   

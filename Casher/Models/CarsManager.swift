@@ -13,6 +13,10 @@ enum AddCarError {
   case success, badRequest, carNotUnique
 }
 
+enum ResponseError {
+  case none, someError
+}
+
 class CarsProvider {
   
   private struct URLs {
@@ -78,13 +82,6 @@ class CarsProvider {
   
   func ownedCars(completion: (([OwnedCar]) -> ())?) {
     
-//    let dummy: [OwnedCar] = [
-//      OwnedCar(image: nil , model: "Tesla", status: RentStatus(rawValue: 1)!),
-//      OwnedCar(image: nil , model: "Range Rover", status: RentStatus(rawValue: 2)!)
-//    ]
-//    completion?(dummy)
-//    return
-    
     let headers = ["Authorization": String(userId)]
     let params: [String: Any] = [:]
     let url = "\(URLs.ownedCars)/\(userId)/cars"
@@ -131,8 +128,99 @@ class CarsProvider {
         }
     }
   }
+  
+  
+  func saveDate(carId: Int, date: CarDate, completion: @escaping ((ResponseError) -> ())) {
+    
+    let headers = ["Authorization": String(userId)]
+    let params: [String: Any] = [
+      "startTime": date.start,
+      "endTime": date.end
+    ]
+    let url = "\(URLs.getCars)/\(carId)/dates"
+    
+    Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+      .response { response in
+        print("\(url): ", response.response?.statusCode)
+        
+        switch response.response?.statusCode {
+        case 200:
+          completion(.none)
+        default:
+          completion(.someError)
+        }
+    }
+  }
+  
+  func savePrice(carId: Int, price: CarPrice, completion: @escaping ((ResponseError) -> ())) {
+    let headers = ["Authorization": String(userId)]
+    let params: [String: Any] = [
+      "timeUnit": price.timeUnit.rawValue,
+      "price": price.price
+    ]
+    let url = "\(URLs.getCars)/\(carId)/prices"
+    
+    Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+      .response { response in
+        print("\(url): ", response.response?.statusCode)
+        
+        switch response.response?.statusCode {
+        case 200:
+          completion(.none)
+        default:
+          completion(.someError)
+        }
+    }
+  }
+  
+  
+  
+  func dates(carId: Int, completion: @escaping (([CarDate]) -> ())) {
+    let headers = ["Authorization": String(userId)]
+    let url = "\(URLs.getCars)/\(carId)/dates"
+    
+    Alamofire.request(url, method: .get, parameters: [:], headers: headers)
+      .responseData { response in
+        print("\(url): ", response.response?.statusCode)
+        switch response.result {
+        case .success(let jsonData):
+          print(jsonData)
+          if let dates = try? JSONDecoder().decode([CarDate].self, from: jsonData) {
+            completion(dates)
+          } else {
+            print("FUCKUP parsing")
+          }
+        case .failure(let err):
+          print("\(err)")
+          completion([])
+        }
+    }
+  }
+  
+  func prices(carId: Int, completion: @escaping (([CarPrice]) -> ())) {
+    let headers = ["Authorization": String(userId)]
+    let url = "\(URLs.getCars)/\(carId)/prices"
+    
+    Alamofire.request(url, method: .get, parameters: [:], headers: headers)
+      .responseData { response in
+        print("\(url): ", response.response?.statusCode)
+        switch response.result {
+        case .success(let jsonData):
+          print(jsonData)
+          if let prices = try? JSONDecoder().decode([CarPrice].self, from: jsonData) {
+            completion(prices)
+          } else {
+            print("FUCKUP parsing")
+          }
+        case .failure(let err):
+          print("\(err)")
+          completion([])
+        }
+    }
+  }
+  
 }
 
-extension CarsProvider: CarPublisher, RentCarsDataSource, AccountManager {
+extension CarsProvider: CarPublisher, RentCarsDataSource, AccountManager, DatesPricesProvider {
   
 }

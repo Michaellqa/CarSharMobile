@@ -39,8 +39,10 @@ class ProfileVC: UIViewController {
     logOut()
   }
   
-  func goToCar() {
+  func goToCar(car: OwnedCar) {
     let vc = CarPropertiesVC()
+    vc.dataProvider = CarsProvider(userId: KeychainWrapper.standard.integer(forKey: "Access token")!)
+    vc.car = car
     self.present(vc, animated: true, completion: nil)
   }
   
@@ -81,7 +83,7 @@ extension ProfileVC: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    goToCar()
+    goToCar(car: ownedCars[indexPath.row])
     tableView.deselectRow(at: indexPath, animated: true)
   }
 }

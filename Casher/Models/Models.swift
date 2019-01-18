@@ -55,3 +55,43 @@ struct Car: Codable {
     case year
   }
 }
+
+
+enum TimeUnit: String, Codable {
+  case hour
+  case day
+  case week
+  
+  func string() -> String {
+    switch self {
+    case .hour:
+      return "Hour"
+    case .day:
+      return "Day"
+    case .week:
+      return "Week"
+    }
+  }
+  
+}
+
+
+struct CarPrice: Codable {
+  let timeUnit: TimeUnit
+  let price: Double
+  
+  private enum CodingKeys: String, CodingKey {
+    case timeUnit, price
+  }
+}
+
+
+struct CarDate: Codable {
+  let start: String
+  let end: String
+  
+  private enum CodingKeys: String, CodingKey {
+    case start = "startTime"
+    case end = "endTime"
+  }
+}
