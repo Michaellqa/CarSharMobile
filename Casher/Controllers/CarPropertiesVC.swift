@@ -84,7 +84,7 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     let inFormatter = DateFormatter()
-    inFormatter.dateFormat = "dd/MM/yyyy hh:mm"
+    inFormatter.dateFormat = "dd/MM/yyyy HH:mm"
     
     guard let start = inFormatter.date(from: s),
       let end = inFormatter.date(from: e) else {
@@ -126,10 +126,12 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   
   func loadDatesAndPrices() {
     dataProvider.prices(carId: car.id) { prices in
+      print("prices:", prices.count)
       self.prices = prices
       self.tableView.reloadData()
     }
     dataProvider.dates(carId: car.id) { dates in
+      print("dates:", dates.count)
       self.dates = dates
       self.tableView.reloadData()
     }
@@ -178,13 +180,16 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 1:
-      if prices.count == 0 {
+      if dates.count == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
         cell.button.addTarget(nil, action: #selector(addDate), for: .touchUpInside)
         cell.button.setTitle("Add Date", for: .normal)
         return cell
       } else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath) as! TitleValueCell
+        let date = dates[indexPath.row]
+        cell.titleLabel.text = convertTime(dateStr: date.start, srcFormat: "yyyy-MM-dd'T'HH:mm:ssZ", dstFormat: "dd/MM/yyyy hh:mm")
+        cell.valueLabel.text = convertTime(dateStr: date.end, srcFormat: "yyyy-MM-dd'T'HH:mm:ssZ", dstFormat: "dd/MM/yyyy hh:mm")
         return cell
       }
       
@@ -195,7 +200,10 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         cell.button.setTitle("Add Price", for: .normal)
         return cell
       } else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath) as! TitleValueCell
+        let price = prices[indexPath.row]
+        cell.titleLabel.text = price.timeUnit.string()
+        cell.valueLabel.text = "\(price.price)$"
         return cell
       }
       
@@ -216,8 +224,8 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     switch section {
     case 0: return 1
-    case 1: return max(prices.count, 1)
-    case 2: return max(dates.count, 1)
+    case 1: return dates.count + 1
+    case 2: return prices.count + 1
     default: return 0
     }
   }
@@ -258,3 +266,4 @@ extension CarPropertiesVC {
     self.view.endEditing(true)
   }
 }
+

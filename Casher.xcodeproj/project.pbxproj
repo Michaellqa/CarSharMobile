@@ -32,6 +32,7 @@
 		81B4A0A521E4D932000EA26F /* PublishCarVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B4A0A421E4D932000EA26F /* PublishCarVC.xib */; };
 		81B4A0A721E51254000EA26F /* UserCarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4A0A621E51254000EA26F /* UserCarsCell.swift */; };
 		81B4A0A921E512DD000EA26F /* UserCarsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B4A0A821E512DD000EA26F /* UserCarsCell.xib */; };
+		81CC793421F21B3500AFC6DD /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC793321F21B3500AFC6DD /* extensions.swift */; };
 		81DBE76521E33EE00010AC96 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76421E33EE00010AC96 /* test.swift */; };
 		81DBE76721E3C5E80010AC96 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76621E3C5E80010AC96 /* ProfileVC.swift */; };
 		81DBE76921E3C8960010AC96 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE76821E3C8960010AC96 /* ProfileVC.xib */; };
@@ -71,6 +72,7 @@
 		81B4A0A421E4D932000EA26F /* PublishCarVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishCarVC.xib; sourceTree = "<group>"; };
 		81B4A0A621E51254000EA26F /* UserCarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCarsCell.swift; sourceTree = "<group>"; };
 		81B4A0A821E512DD000EA26F /* UserCarsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCarsCell.xib; sourceTree = "<group>"; };
+		81CC793321F21B3500AFC6DD /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		81DBE76421E33EE00010AC96 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		81DBE76621E3C5E80010AC96 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		81DBE76821E3C8960010AC96 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				81E85A8321C03F4200A189D2 /* Assets.xcassets */,
 				81E85A7C21C03F4100A189D2 /* AppDelegate.swift */,
 				81E85A8521C03F4200A189D2 /* LaunchScreen.storyboard */,
+				81CC793321F21B3500AFC6DD /* extensions.swift */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				81DBE76521E33EE00010AC96 /* test.swift in Sources */,
 				8149F2A621EB487F0047AAD7 /* Models.swift in Sources */,
 				819BFC3721EE599000928CF4 /* AddDateView.swift in Sources */,
+				81CC793421F21B3500AFC6DD /* extensions.swift in Sources */,
 				81E85A7D21C03F4100A189D2 /* AppDelegate.swift in Sources */,
 				819BFC2E21EE52DE00928CF4 /* TitleValueCell.swift in Sources */,
 				8152307B21C4F0B90044452A /* CarListVC.swift in Sources */,
