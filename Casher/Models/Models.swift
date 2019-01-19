@@ -31,14 +31,13 @@ struct OwnedCar: Decodable {
 
 
 struct CarShort: Decodable {
+  let id: Int
   let image: String?
-  let title: String
+  let model: String
   let year: Int
   
   private enum CodingKeys: String, CodingKey {
-    case image
-    case title = "model"
-    case year = "year"
+    case id, image, model, year
   }
 }
 
@@ -50,9 +49,7 @@ struct Car: Codable {
   let vin: String
   
   private enum CodingKeys: String, CodingKey {
-    case model, vin
-    case mileage
-    case year
+    case model, vin, mileage, year
   }
 }
 
@@ -94,4 +91,17 @@ struct CarDate: Codable {
     case start = "startTime"
     case end = "endTime"
   }
+}
+
+
+struct Total: Codable {
+  
+  struct Part: Codable {
+    let unit: String
+    let base: Double
+    let count: Int
+  }
+  
+  let value: Double
+  let parts: [Part]?
 }

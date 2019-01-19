@@ -33,6 +33,8 @@
 		81B4A0A721E51254000EA26F /* UserCarsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B4A0A621E51254000EA26F /* UserCarsCell.swift */; };
 		81B4A0A921E512DD000EA26F /* UserCarsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B4A0A821E512DD000EA26F /* UserCarsCell.xib */; };
 		81CC793421F21B3500AFC6DD /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC793321F21B3500AFC6DD /* extensions.swift */; };
+		81CC793621F2F68500AFC6DD /* AnalyticsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CC793521F2F68500AFC6DD /* AnalyticsVC.xib */; };
+		81CC793821F2F69200AFC6DD /* AnalyticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CC793721F2F69200AFC6DD /* AnalyticsVC.swift */; };
 		81DBE76521E33EE00010AC96 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76421E33EE00010AC96 /* test.swift */; };
 		81DBE76721E3C5E80010AC96 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DBE76621E3C5E80010AC96 /* ProfileVC.swift */; };
 		81DBE76921E3C8960010AC96 /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81DBE76821E3C8960010AC96 /* ProfileVC.xib */; };
@@ -73,6 +75,8 @@
 		81B4A0A621E51254000EA26F /* UserCarsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCarsCell.swift; sourceTree = "<group>"; };
 		81B4A0A821E512DD000EA26F /* UserCarsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCarsCell.xib; sourceTree = "<group>"; };
 		81CC793321F21B3500AFC6DD /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		81CC793521F2F68500AFC6DD /* AnalyticsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnalyticsVC.xib; sourceTree = "<group>"; };
+		81CC793721F2F69200AFC6DD /* AnalyticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsVC.swift; sourceTree = "<group>"; };
 		81DBE76421E33EE00010AC96 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		81DBE76621E3C5E80010AC96 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		81DBE76821E3C8960010AC96 /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 				819BFC2921EE4DB800928CF4 /* CarPropertiesVC.xib */,
 				819BFC3E21EEFD4300928CF4 /* CarListVC.xib */,
 				819BFC4221EF22B900928CF4 /* RentVC.xib */,
+				81CC793521F2F68500AFC6DD /* AnalyticsVC.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				81B4A0A221E4CCFA000EA26F /* PublishCarVC.swift */,
 				819BFC2721EE4B3F00928CF4 /* CarPropertiesVC.swift */,
 				819BFC4021EF20B000928CF4 /* RentVC.swift */,
+				81CC793721F2F69200AFC6DD /* AnalyticsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			files = (
 				819BFC3B21EE59B000928CF4 /* AddPriceView.xib in Resources */,
 				819BFC2A21EE4DB800928CF4 /* CarPropertiesVC.xib in Resources */,
+				81CC793621F2F68500AFC6DD /* AnalyticsVC.xib in Resources */,
 				81E85A8721C03F4200A189D2 /* LaunchScreen.storyboard in Resources */,
 				819BFC4321EF22B900928CF4 /* RentVC.xib in Resources */,
 				81B4A0A521E4D932000EA26F /* PublishCarVC.xib in Resources */,
@@ -380,6 +387,7 @@
 				81E85A7D21C03F4100A189D2 /* AppDelegate.swift in Sources */,
 				819BFC2E21EE52DE00928CF4 /* TitleValueCell.swift in Sources */,
 				8152307B21C4F0B90044452A /* CarListVC.swift in Sources */,
+				81CC793821F2F69200AFC6DD /* AnalyticsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

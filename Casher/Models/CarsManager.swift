@@ -31,15 +31,21 @@ class CarsProvider {
   }
   
   private let userId: Int
+  private let headers: [String: String]
   
   init(userId: Int) {
     self.userId = userId
+    self.headers = ["Authorization": "\(userId)"]
   }
   
-  func carList(completion: (([CarShort]) -> ())?) {
-    let headers = ["Authorization": "\(userId)"]
+  func carList(date: CarDate?, completion: (([CarShort]) -> ())?) {
+    var params: [String:Any] = [:]
+    if let date = date {
+      params["start"] = date.start
+      params["end"] = date.end
+    }
     
-    Alamofire.request(URLs.getCars, method: .get, parameters: nil, headers: headers)
+    Alamofire.request(URLs.getCars, method: .get, parameters: params, headers: headers)
       .responseData { response in
         print("carList", response.request)
         
@@ -56,14 +62,12 @@ class CarsProvider {
   }
   
   func addCar(car: Car, completion: @escaping ((AddCarError) -> ())) {
-    let headers = ["Authorization": String(userId)]
     let params: [String : Any] = [
       "Model": car.model,
       "Year": car.year,
       "Mileage": car.mileage,
       "Vin": car.vin
       ]
-    
     Alamofire.request(URLs.addCar, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
       .response { response in
         
@@ -81,8 +85,6 @@ class CarsProvider {
   }
   
   func ownedCars(completion: (([OwnedCar]) -> ())?) {
-    
-    let headers = ["Authorization": String(userId)]
     let params: [String: Any] = [:]
     let url = "\(URLs.ownedCars)/\(userId)/cars"
     
@@ -106,11 +108,9 @@ class CarsProvider {
   }
   
   func findCar(car: Car, completion: @escaping ((Car) -> ())) {
-    let headers = ["Authorization": String(userId)]
     let params: [String : Any] = [
       :
     ]
-    
     Alamofire.request(URLs.addCar, method: .get, parameters: params, encoding: JSONEncoding.default, headers: headers)
       .responseData { response in
         
@@ -129,10 +129,7 @@ class CarsProvider {
     }
   }
   
-  
   func saveDate(carId: Int, date: CarDate, completion: @escaping ((ResponseError) -> ())) {
-    
-    let headers = ["Authorization": String(userId)]
     let params: [String: Any] = [
       "startTime": date.start,
       "endTime": date.end
@@ -153,7 +150,6 @@ class CarsProvider {
   }
   
   func savePrice(carId: Int, price: CarPrice, completion: @escaping ((ResponseError) -> ())) {
-    let headers = ["Authorization": String(userId)]
     let params: [String: Any] = [
       "timeUnit": price.timeUnit.rawValue,
       "price": price.price
@@ -176,7 +172,6 @@ class CarsProvider {
   
   
   func dates(carId: Int, completion: @escaping (([CarDate]) -> ())) {
-    let headers = ["Authorization": String(userId)]
     let url = "\(URLs.getCars)/\(carId)/dates"
     
     Alamofire.request(url, method: .get, parameters: [:], headers: headers)
@@ -198,7 +193,6 @@ class CarsProvider {
   }
   
   func prices(carId: Int, completion: @escaping (([CarPrice]) -> ())) {
-    let headers = ["Authorization": String(userId)]
     let url = "\(URLs.getCars)/\(carId)/prices"
     
     Alamofire.request(url, method: .get, parameters: [:], headers: headers)
@@ -219,8 +213,57 @@ class CarsProvider {
     }
   }
   
+  func total(carId: Int, date: CarDate, completion: @escaping ((TotalPriceResponse) -> ())) {
+    let url = "\(URLs.base)/cars/\(carId)/\(date.start)/\(date.end)/total"
+    
+    Alamofire.request(url, method: .get, parameters: nil, headers: headers)
+      .responseData { response in
+        print("\(url): ", response.response?.statusCode)
+        
+        switch response.result {
+        case .success(let jsonData):
+          print(String.init(data: jsonData, encoding: .utf8))
+          if let total = try? JSONDecoder().decode(Total.self, from: jsonData) {
+            completion(.success(value: total.value))
+          } else {
+            print("total FUCKUP")
+          }
+        default:
+          completion(.error)
+        }
+    }
+  }
+  
+  func rent(carId: Int, date: CarDate, price: Double, completion: @escaping ((RentResponse) -> ())) {
+    let params: [String: Any] = [
+      "startTime": date.start,
+      "endTime": date.end,
+      "total": price,
+    ]
+    let url = "\(URLs.base)/cars/\(carId)/rent"
+    
+    Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+      .response { response in
+        print("\(url): ", response.response?.statusCode)
+        
+        switch response.response?.statusCode {
+        case 200:
+          completion(.success)
+        case 409:
+          if let data = response.data,
+            let text = String(bytes: data, encoding: .utf8),
+            let total = Double(text) {
+            completion(.priceChanged(newValue: total))
+            return
+          }
+          print("haven't received new price")
+        default:
+          completion(.error)
+        }
+    }
+  }
 }
 
-extension CarsProvider: CarPublisher, RentCarsDataSource, AccountManager, DatesPricesProvider {
-  
+extension CarsProvider: CarPublisher, RentCarsDataSource, AccountManager, DatesPricesProvider, RentProvider {
+
 }

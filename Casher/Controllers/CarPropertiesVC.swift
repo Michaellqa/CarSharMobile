@@ -20,6 +20,8 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   
   private let datePicker = UIDatePicker()
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var titleLabel: UILabel!
+  
   private var prices: [CarPrice] = []
   private var dates: [CarDate] = []
   
@@ -35,10 +37,6 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     bindDatePicker()
     loadDatesAndPrices()
-  }
-  
-  @objc private func goBack() {
-    dismiss(animated: true, completion: nil)
   }
   
   private lazy var addPriceView: AddPriceView = {
@@ -156,10 +154,6 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     switch section {
-    case 0:
-      let l = TableHeader()
-      l.label.text = "profile"
-      return l
     case 1:
       let l = TableHeader()
       l.label.text = "dates"
@@ -174,34 +168,38 @@ class CarPropertiesVC: UIViewController, UITableViewDataSource, UITableViewDeleg
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
+    return section == 0 ? 0 : 50
+  }
+  
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    return nil
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     switch indexPath.section {
     case 1:
-      if dates.count == 0 {
+      if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
         cell.button.addTarget(nil, action: #selector(addDate), for: .touchUpInside)
         cell.button.setTitle("Add Date", for: .normal)
         return cell
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath) as! TitleValueCell
-        let date = dates[indexPath.row]
+        let date = dates[indexPath.row - 1]
         cell.titleLabel.text = convertTime(dateStr: date.start, srcFormat: "yyyy-MM-dd'T'HH:mm:ssZ", dstFormat: "dd/MM/yyyy hh:mm")
         cell.valueLabel.text = convertTime(dateStr: date.end, srcFormat: "yyyy-MM-dd'T'HH:mm:ssZ", dstFormat: "dd/MM/yyyy hh:mm")
         return cell
       }
       
     case 2:
-      if prices.count == 0 {
+      if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath) as! ButtonCell
         cell.button.addTarget(nil, action: #selector(addPrice), for: .touchUpInside)
         cell.button.setTitle("Add Price", for: .normal)
         return cell
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TitleValueCell", for: indexPath) as! TitleValueCell
-        let price = prices[indexPath.row]
+        let price = prices[indexPath.row - 1]
         cell.titleLabel.text = price.timeUnit.string()
         cell.valueLabel.text = "\(price.price)$"
         return cell

@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234-12-12 12:45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OQl-l4-yWJ">
-                    <rect key="frame" x="10" y="15" width="172.5" height="45"/>
+                    <rect key="frame" x="20" y="15" width="162.5" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456799876543424624562456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NsN-It-WEE">
-                    <rect key="frame" x="192.5" y="27" width="172.5" height="21"/>
+                    <rect key="frame" x="192.5" y="27" width="162.5" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,9 +32,9 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="OQl-l4-yWJ" secondAttribute="bottom" constant="15" id="4QC-qY-pZR"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NsN-It-WEE" secondAttribute="trailing" constant="10" id="IOm-PU-kDX"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NsN-It-WEE" secondAttribute="trailing" constant="20" id="IOm-PU-kDX"/>
                 <constraint firstItem="OQl-l4-yWJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="15" id="SOb-jx-e6Z"/>
-                <constraint firstItem="OQl-l4-yWJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="TLD-gy-acn"/>
+                <constraint firstItem="OQl-l4-yWJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="TLD-gy-acn"/>
                 <constraint firstItem="OQl-l4-yWJ" firstAttribute="width" secondItem="NsN-It-WEE" secondAttribute="width" id="YmM-nr-MMM"/>
                 <constraint firstItem="NsN-It-WEE" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="bWe-St-Db1"/>
                 <constraint firstItem="OQl-l4-yWJ" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="u8G-lk-m0z"/>
